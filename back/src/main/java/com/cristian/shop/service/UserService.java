@@ -41,7 +41,9 @@ public class UserService {
 
     public Map<String, String> register(UserDTO user) {
 
-        if (userRepository.findByEmail(user.getEmail()).isPresent()) return null;
+        if (userRepository.findByEmail(user.getEmail()).isPresent())
+            throw new ResponseException("Email", "Email in used", HttpStatus.CONFLICT);
+
 
         user.setPassword(encoder.encode(user.getPassword()));
         user.setRol("USER");
