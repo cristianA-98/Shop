@@ -14,9 +14,9 @@ import javax.validation.Valid;
 import java.util.Map;
 
 @RestController
-@RequestMapping("${api.uri}/auth/admin/")
+@RequestMapping("/api/v1/auth/admin/")
 @AllArgsConstructor
-public class AdminController {
+public class AuthController {
 
     private final UserService userService;
 

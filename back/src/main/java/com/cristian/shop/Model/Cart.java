@@ -19,7 +19,7 @@ public class Cart {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany()
     @JoinColumn(name = "cart_id")
     private List<Product> products;
 

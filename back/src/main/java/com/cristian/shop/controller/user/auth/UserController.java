@@ -1,4 +1,4 @@
-package com.cristian.shop.controller.auth;
+package com.cristian.shop.controller.user.auth;
 
 import com.cristian.shop.dto.UserDTO;
 import com.cristian.shop.service.UserService;

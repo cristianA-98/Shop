@@ -19,8 +19,8 @@ public class Product {
     private String name;
     private String description;
     private String category;
-    private String amount;
-    private String price;
+    private Integer amount;
+    private Double price;
     private String waist;
 
     // add service save img.* in back

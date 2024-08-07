@@ -41,7 +41,7 @@ public class User implements UserDetails {
 
     //    --------- ADMIN   --------
 
-    @OneToMany(mappedBy = "admin")
+    @OneToMany(mappedBy = "admin", cascade = CascadeType.ALL)
     private List<Product> productList;
 
     @Override

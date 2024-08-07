@@ -20,11 +20,10 @@ public class Orders {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "cart_id")
     private Cart cart;
 
-    private Boolean orderActive;
     private Boolean orderFinish;
 
     @Enumerated(EnumType.STRING)
@@ -36,8 +35,8 @@ public class Orders {
 
     @UpdateTimestamp
     private LocalTime updatedAt;
-    
-    @ManyToOne()
+
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user")
     private User user;
 
