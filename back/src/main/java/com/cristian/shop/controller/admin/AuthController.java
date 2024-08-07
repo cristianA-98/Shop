@@ -1,4 +1,4 @@
-package com.cristian.shop.controller.auth;
+package com.cristian.shop.controller.admin;
 
 import com.cristian.shop.dto.UserDTO;
 import com.cristian.shop.service.UserService;
@@ -14,7 +14,7 @@ import javax.validation.Valid;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/api/v1/auth/admin/")
+@RequestMapping("${api.uri}/auth/admin/")
 @AllArgsConstructor
 public class AdminController {
 
