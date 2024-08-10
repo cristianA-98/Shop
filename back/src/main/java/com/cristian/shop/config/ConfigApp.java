@@ -3,6 +3,7 @@ package com.cristian.shop.config;
 import com.cristian.shop.config.exceptionControll.ResponseException;
 import com.cristian.shop.repository.UserRepository;
 import lombok.AllArgsConstructor;
+import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpStatus;
@@ -19,6 +20,12 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 public class ConfigApp {
 
     private final UserRepository userRepository;
+
+
+    @Bean
+    public ModelMapper ModelMapper() {
+        return new ModelMapper();
+    }
 
     // Check the email and password in the database
     @Bean

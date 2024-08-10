@@ -6,7 +6,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
-import java.time.LocalTime;
+import java.time.LocalDateTime;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -21,20 +21,21 @@ public class Orders {
     private Long id;
 
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(name = "cart_id")
+    @JoinColumn(name = "cart_id", updatable = false)
     private Cart cart;
 
     private Boolean orderFinish;
+
 
     @Enumerated(EnumType.STRING)
     private StatusOrder status;
 
     @Column(updatable = false)
     @CreationTimestamp
-    private LocalTime createdAt;
+    private LocalDateTime createdAt;
 
     @UpdateTimestamp
-    private LocalTime updatedAt;
+    private LocalDateTime updatedAt;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user")

@@ -15,7 +15,7 @@ import java.util.Map;
 
 @RestController
 @AllArgsConstructor
-@RequestMapping("/api/v1/admin/")
+@RequestMapping("/api/v1/admin/product/")
 public class ProductController {
     private final ProductServiceImpl productService;
 
@@ -23,21 +23,35 @@ public class ProductController {
     @GetMapping("{id}")
     public ResponseEntity<Map<String, ProductDto>> getProduct(@PathVariable Long id) {
         Map<String, ProductDto> body = new HashMap<>();
-        body.put("product", productService.getProduct(id));
+        body.put("Product", productService.getProduct(id));
         return new ResponseEntity<>(body, HttpStatus.ACCEPTED);
     }
 
     @GetMapping("")
     public ResponseEntity<Map<String, List<ProductDto>>> allProduct() {
         Map<String, List<ProductDto>> body = new HashMap<>();
-        body.put("product", productService.allProduct());
+        body.put("Products", productService.allProduct());
         return new ResponseEntity<>(body, HttpStatus.ACCEPTED);
     }
 
 
-    @PostMapping("addProduct")
+    @PostMapping("add")
     public ResponseEntity<Map<String, String>> addProduct(@Valid @RequestBody ProductDto productDto) {
         productService.addProduct(productDto);
-        return new ResponseEntity<>(Map.of("Product", "save..."), HttpStatus.CREATED);
+        return new ResponseEntity<>(Map.of("Product", "Save..."), HttpStatus.CREATED);
     }
+
+    @DeleteMapping("{id}")
+    public ResponseEntity<Map<String, String>> deleteProduct(@PathVariable Long id) {
+        productService.deleteProduct(id);
+        return new ResponseEntity<>(Map.of("Product", "Delete..."), HttpStatus.ACCEPTED);
+    }
+
+    @PatchMapping("")
+    public ResponseEntity<Map<String, String>> patchProduct(@Valid @RequestBody ProductDto productDto) {
+        productService.patchProduct(productDto);
+        return new ResponseEntity<>(Map.of("Product", "Patch"), HttpStatus.OK);
+    }
+
+
 }

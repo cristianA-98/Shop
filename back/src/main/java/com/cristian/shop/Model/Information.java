@@ -17,6 +17,7 @@ public class Information {
     private Long id;
 
 
+    private String name;
     private String address;
     private Integer zip;
     private String phone;

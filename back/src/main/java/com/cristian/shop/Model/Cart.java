@@ -19,13 +19,14 @@ public class Cart {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToMany()
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "cart_id")
-    private List<Product> products;
+    private List<CartItem> cartItems;
 
 
-    private Integer total;
-    private Boolean finish_buy;
+    private Double total;
+    private Integer items;
+    private Boolean isFinishBuy;
 
 
     @Column(updatable = false)
@@ -38,5 +39,6 @@ public class Cart {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;
+
 
 }

@@ -30,7 +30,7 @@ public class AuthController {
     // Register
     @PostMapping("register")
     public ResponseEntity<Map<String, String>> registerAdmin(@Valid() @RequestBody UserDTO user) {
-        Map<String, String> body = userService.registerAdmin(user);
+        Map<String, String> body = userService.register(user);
         return new ResponseEntity<>(body, HttpStatus.ACCEPTED);
     }
 
