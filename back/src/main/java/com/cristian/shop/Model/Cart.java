@@ -6,7 +6,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.time.LocalTime;
-import java.util.List;
+import java.util.Set;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -21,7 +21,7 @@ public class Cart {
 
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "cart_id")
-    private List<CartItem> cartItems;
+    private Set<CartItem> cartItems;
 
 
     private Double total;

@@ -24,11 +24,7 @@ public class ProductServiceImpl {
     private final ModelMapper mapper;
 
     public ProductDto getProduct(Long id) {
-        Product product = productRepository
-                .findById(id)
-                .orElseThrow(
-                        () -> new ResponseException("404", "Product ID NOT FOUND", HttpStatus.NOT_FOUND)
-                );
+        Product product = existProduct(id);
         return mapper.map(product, ProductDto.class);
     }
 
@@ -50,20 +46,14 @@ public class ProductServiceImpl {
     }
 
     public void deleteProduct(Long id) {
-
-        if (!productRepository.existsById(id))
-            throw new ResponseException("404", "Product ID NOT FOUND", HttpStatus.NOT_FOUND);
-
+        existProduct(id);
         productRepository.deleteById(id);
 
     }
 
     @Transactional
     public void patchProduct(ProductDto productDto) {
-        if (!productRepository.existsById(productDto.getId()))
-            throw new ResponseException("404", "Product ID NOT FOUND", HttpStatus.NOT_FOUND);
-
-        System.out.println(productDto);
+        existProduct(productDto.getId());
         productRepository.patch(
                 productDto.getName(),
                 productDto.getDescription(),
@@ -76,6 +66,12 @@ public class ProductServiceImpl {
                 productDto.getId());
 
 
+    }
+
+    private Product existProduct(Long id) {
+        return productRepository
+                .findById(id)
+                .orElseThrow(() -> new ResponseException("404", "Product ID NOT FOUND", HttpStatus.NOT_FOUND));
     }
 
     //Extract email del contextHolder and find user

@@ -30,7 +30,7 @@ public class UserController {
     // Register
     @PostMapping("register")
     public ResponseEntity<Map<String, String>> register(@Valid() @RequestBody UserDTO user) {
-        Map<String, String> body = userService.registerUser(user);
+        Map<String, String> body = userService.register(user);
         return new ResponseEntity<>(body, HttpStatus.ACCEPTED);
     }
 
