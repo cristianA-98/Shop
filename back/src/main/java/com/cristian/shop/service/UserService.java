@@ -93,7 +93,7 @@ public class UserService {
         } catch (Exception e) {
             if (e.getLocalizedMessage().equals("Bad credentials"))
                 throw new ResponseException("404", "Incorrect password", HttpStatus.NOT_FOUND);
-            throw new ResponseException("404", "Incorrect password", HttpStatus.NOT_FOUND);
+            throw new ResponseException("404", "Error Credentials", HttpStatus.NOT_FOUND);
         }
     }
 
