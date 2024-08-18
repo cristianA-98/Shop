@@ -1,0 +1,68 @@
+<div class="min-h-dvh grid grid-rows-[1fr_auto]">
+  <app-header />
+  <main class="my-52 flex place-content-center">
+    <article
+      class="h-min md:w-2/3 grid md:grid-cols-2 overflow-hidden shadow-md px-5"
+    >
+      <div class="relative">
+        <img
+          class="w-full h-full bg-cover"
+          src="https://images.unsplash.com/photo-1523275335684-37898b6baf30"
+          alt="Product Image"
+        />
+        <div
+          class="absolute top-0 right-0 bg-red-500 text-white px-2 py-1 m-2 rounded-md text-sm font-medium"
+        >
+          SALE
+        </div>
+      </div>
+      <div class="p-5 md:flex md:flex-col justify-between">
+        <div>
+          <h3 class="text-lg font-extrabold mb-2">Product Title</h3>
+          <p class="text-gray-600 font-light mb-4">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vitae
+            ante vel eros fermentum faucibus sit amet euismod lorem. Lorem ipsum
+            amet, consectetur adipiscing elit. Duis vitae ante vel eros
+            fermentum faucibus sit amet euismod lorem.
+          </p>
+        </div>
+        <div class="">
+          <p class="font-medium">SEX: <span class="font-light">M</span></p>
+
+          <p class="font-medium">
+            Size:
+            <span class="font-light">XLL</span>
+          </p>
+
+          <p class="font-medium">
+            Preice:
+            <span class="font-semibold">$5000</span>
+          </p>
+        </div>
+        <div class="mt-4 p-4 border-t border-gray-500">
+          <button
+            class="w-full flex justify-between items-center font-bold cursor-pointer hover:underline text-gray-800"
+          >
+            <span class="text-base">Add to Cart</span>
+            <svg
+              class="h-6 w-6"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <app-footer />
+</div>
